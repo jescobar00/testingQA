@@ -37,8 +37,8 @@ def test_login(username, password, esValido, expectedIndicator):
 
         # 3) Verificar el resultado del inicio de sesión
         if esValido:
-            success_message = wait.until(EC.presence_of_element_located((By.ID, "success-message")))  # Cambia el selector según tu aplicación
-            assert success_message.is_displayed(), "El mensaje de éxito no se muestra."
+            # success_message = wait.until(EC.presence_of_element_located((By.ID, "success-message")))  # Cambia el selector según tu aplicación
+            # assert success_message.is_displayed(), "El mensaje de éxito no se muestra."
             # assert "/inventory.html" in driver.current_url
             logo = driver.find_element(By.CLASS_NAME, "app_logo")
             assert logo.text == "Swag Labs"
@@ -46,8 +46,8 @@ def test_login(username, password, esValido, expectedIndicator):
             titulo = driver.find_element(By.CSS_SELECTOR,"[data-test='title']")
             assert titulo.text == "Products"
         else:
-            #  //h3[@data-test='error']
-            error_element = wait.until(EC.presence_of_element_located((By.ID, "error-message")))
+            #  $x("//h3[@data-test='error']")[0].textContent
+            error_element = wait.until(EC.presence_of_element_located((By.XPATH, "//h3[@data-test='error']")))
             assert expectedIndicator in error_element.text
 
     finally:
