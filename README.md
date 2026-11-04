@@ -46,6 +46,8 @@ pytest
 
 #### Automatización de Login:
 
+[test_login.py](./preentrega/tests/test_login.py)
+
 ```
     Navegar a la página de login de saucedemo.com
     Ingresar credenciales válidas (usuario: "standard_user", contraseña: "secret_sauce")
@@ -55,6 +57,8 @@ pytest
 ```
 
 #### Navegación y verificación del catálogo:
+
+[test_products.py](./preentrega/tests/test_productos.py)
 
 ```
 Navegación y verificación del catálogo: (Clases 6 a 8)
@@ -70,6 +74,8 @@ Navegación y verificación del catálogo: (Clases 6 a 8)
 ```
 
 #### Interacción con productos:
+
+[test_carrito.py](./preentrega/tests/test_carrito.py)
 
 ```
 Interacción con productos: (Clase 8)
