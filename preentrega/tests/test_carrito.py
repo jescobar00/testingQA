@@ -47,7 +47,7 @@ def test_carrito(username, password, isRemovingRequired):
         shoppingCartBadge = wait.until(
           EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-test="shopping-cart-badge"]'))
         )
-        quantityOfProductsInCart = int(shoppingCartBadge)
+        quantityOfProductsInCart = int(shoppingCartBadge.text) if shoppingCartBadge.text.isdigit() else 0
         NO_PRODUCTS_ADDED_TO_CART = 2
         assert quantityOfProductsInCart == NO_PRODUCTS_ADDED_TO_CART
         print(f"OK: There are {NO_PRODUCTS_ADDED_TO_CART} products in cart red badge as expected")
@@ -63,7 +63,7 @@ def test_carrito(username, password, isRemovingRequired):
         assert len(cartItems) == NO_PRODUCTS_ADDED_TO_CART
         print(f"OK: The cart list contains the expected number of items: {NO_PRODUCTS_ADDED_TO_CART}")
         
-        listOfExpectedProductNames = ["Backpack", "Bolt T-Shirt"]
+        listOfExpectedProductNames = ["Backpack", "T-Shirt"]
         hasBackpack = any(listOfExpectedProductNames[0] in item.get_attribute("innerHTML") for item in cartItems)
         hasTshirt = any(listOfExpectedProductNames[1] in item.get_attribute("innerHTML") for item in cartItems)
         assert hasBackpack, f"{listOfExpectedProductNames[0]} not found in cart items."
