@@ -3,11 +3,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python: Pytest Debug",
+      "name": "Python: Pytest Current File",
       "type": "debugpy",
       "request": "launch",
       "module": "pytest",
-      "args": ["-v", "-s"],
+      "args": ["-v", "-s", "${file}"],
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}",
       "env": {

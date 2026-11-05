@@ -84,7 +84,7 @@ def test_carrito(username, password, isRemovingRequired):
             btnRemoveTshirt.click()
             
             cartItemsAfterRemoval = driver.find_elements(By.CLASS_NAME, "cart_item") # document.getElementsByClassName("cart_item")
-            assert len(cartItemsAfterRemoval) == NO_PRODUCTS_ADDED_TO_CART - NO_PRODUCTS_ADDED_TO_CART
+            assert len(cartItemsAfterRemoval) == 0, f"Expected 0 items in cart after removal, but found {len(cartItemsAfterRemoval)}"
             print(f"OK: The cart list contains the expected number of items after removal: {len(cartItemsAfterRemoval)}")
     except Exception as e:
         # Manejar cualquier excepción que ocurra durante la prueba
